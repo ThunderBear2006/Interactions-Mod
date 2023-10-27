@@ -1,0 +1,169 @@
+[jobType]
+socialJobType=Socialize
+
+[jobTypeDescription]
+socialJobType=Socializing within settlement
+
+[activities]
+talking_to=Talking to <target>
+
+[mobmsg]
+
+generic_greeting_0=Hello <NAME>
+generic_greeting_1=Hey <NAME>! Where have you been?
+generic_greeting_2=Hi <NAME>
+generic_greeting_3=Greetings <NAME>
+
+generic_bye_0=Bye <NAME>, see you later
+generic_bye_1=See you later <NAME>
+generic_bye_2=Don't get lost <NAME>
+generic_bye_3=Leaving already <NAME>?
+
+generic_story_query_0=I once saw a squirrel fly from one tree to another
+generic_story_query_1=I once saw this snake that had two heads!
+generic_story_query_2=I dreamt last night I was walking down a long dark corridor, it was really creepy
+generic_story_query_3=Did you know that you can sometimes find chests dotted around the world?
+generic_story_query_4=My auntie once made a delicious pie, it was the best pie I had ever eaten! I miss my auntie...
+
+generic_story_response_0=Oh really?
+generic_story_response_1=Is that so?
+generic_story_response_2=Well I once met this man covered in black garments that could disappear into the night!
+generic_story_response_3=Well I met this master painter! He taught me quite a lot and had quite the hair style!
+
+weather_sunny_query_0=The weather is really nice today isn't it? Perfect for going on a walk
+weather_sunny_query_1=On days like these, I just want to sit by a tree and read a book
+weather_sunny_query_2=With weather like this I might just sit by the beach and watch the waves
+
+weather_sunny_response_0=I was just thinking of doing that!
+weather_sunny_response_1=I'd rather just stay inside, rainy weather is more my type
+weather_sunny_response_2=Too bad I won't have time to do anything like that with all the work I have to do
+
+weather_rain_query_0=I wish this rain would clear up already
+weather_rain_query_1=I am soaked from all this damn rain
+weather_rain_query_2=I just love the piter patter of the rain
+
+weather_rain_response_0=At least the rain is good for the crops
+weather_rain_response_1=I think I might go jump in some puddles
+weather_rain_response_2=I wonder where rain comes from, perhaps Poseidon?
+
+legend_wizard_query_0=I once heard of a legend about an all powerful wizard that once dominated these islands
+legend_wizard_query_1=Did you know of the wizard that once ruled these lands?
+legend_wizard_query_2=Some speak legends of a mighty wizard, one with near infinite power!
+legend_wizard_query_3=I once heard such a rumor of a man who ascended to god hood through magic
+
+legend_wizard_response_0=I could only dream of such power!
+legend_wizard_response_1=They say not to believe everything you hear, but that certainly does sound amazing
+legend_wizard_response_2=I wonder what happened to him, and where his possessions might of gone
+
+legend_dragon_query_0=Do you believe dragons are real? I always found the concept interesting
+legend_dragon_query_1=I once saw a giant shape fly across the sky! Some say it was a dragon
+legend_dragon_query_2=I read a book once about various species of dragons, a piece of fiction of course, I found it to be very inspirational
+
+legend_dragon_response_0=I always wondered if dragons were real or were at some point
+legend_dragon_response_1=I once dreamt I was riding a dragon high in the skies
+legend_dragon_response_2=I have ridden a dragon, no one believes me of course
+legend_dragon_response_3=They say dragons would fiercely guard hordes of gold in their nests
+
+legend_bad_response_0=I am not so sure how true that is.
+legend_bad_response_1=Stop talking of such childish things <NAME>
+legend_bad_response_2=You need to stop reading so much, its rotting your brain <NAME>
+legend_bad_response_3=Do not speak of such heresy!
+
+compliment_query_0=Good seeing you <NAME>, take care
+compliment_query_1=Wow <NAME>, you're looking great today!
+compliment_query_2=You are doing a great job <NAME>, keep at it
+compliment_query_3=I love what you are wearing <NAME>!
+
+compliment_response_0=Thank you! Take care
+compliment_response_1=I needed that, thank you <NAME>
+compliment_response_2=You are too kind
+compliment_response_3=Likewise!
+
+insult_query_0=Go dig up some truffles you hog
+insult_query_1=Go swim in an ocean of sharks
+insult_query_2=I've seen goblins that look better than you <NAME>
+insult_query_3=Go jump off a tree <NAME>
+
+insult_response_0=You should be locked away deep in a dungeon
+insult_response_1=Yeah, right.
+insult_response_2=Shove off
+insult_response_3=Go hug a zombie <NAME>
+insult_response_4=Even a goblin would find you ugly
+insult_response_5=Leave me be
+insult_response_6=Well you get no maidens <NAME>
+
+happy_day_query_0=I am having such a great day! How are you <NAME>?
+happy_day_query_1=Such a beautiful day it is, don't you agree <NAME>?
+happy_day_query_2=I hope tomorrow is as good as today
+
+happy_day_response_0=I have certainly had a good day
+happy_day_response_1=I think it has been a beautiful day <NAME>
+happy_day_response_2=I hope today lasts forever and ever
+
+unhappy_day_query_0=It has been a rough day today, I hope tomorrow is better
+unhappy_day_query_1=I really can not wait to get to bed, how has your day been <NAME>?
+unhappy_day_query_2=I can only hope this day gets better
+
+unhappy_day_response_0=It has been an awful day for me
+unhappy_day_response_1=I wish today would end already
+unhappy_day_response_2=I am so tired I just want this day to get over with
+
+food_good_query_0=Mmm that meal was delicious!
+food_good_query_1=I absolutely loved what the chef cooked for me
+
+food_good_response_0=That was some real gourmet stuff
+food_good_response_1=My meal was absolutely scrumptious!
+
+hungry_query_0=Man I am starving! When is the next meal?
+hungry_query_1=I won't lie that cow over there is starting to look like a good meal
+hungry_query_2=So uh, I hear there are people that eat.. other people
+hungry_query_3=I'm so hungry I could eat a horse!
+
+hungry_response_0=I couldn't eat my last meal, it was simply repulsive!
+hungry_response_1=At this point I might just eat the dirt off the ground, I am so hungry
+hungry_response_2=I wish I could eat grass like the wild sheep and cows can
+hungry_response_3=I'm so hungry I could eat a bear!
+
+profession_elder_0=You youngins just never appreciate the little things
+profession_elder_1=When I was your age I was doing three times the work <NAME>!
+profession_elder_2=Wh-what was I doing again?
+profession_elder_3=Keep off the grass!
+profession_elder_4=Put ya back into it <NAME>!
+profession_elder_5=Did you know that this here island was once the residence of an ancient wizard?
+profession_elder_6=WHAT DID YOU SAY <NAME>?! SPEAK UP!!
+
+profession_guard_0=Citizen.
+profession_guard_1=Heh. Let me guess.. a Caveling stole your gold
+profession_guard_2=I better not catch you lollygagging <NAME>
+profession_guard_3=Best keep your hands out of others pockets <NAME>
+
+profession_blacksmith_shop_query_0=Some coin and I could make you a tool ten times better than that old thing
+profession_blacksmith_shop_query_1=You look like you could use an upgrade, I just happen to have some stock
+
+profession_blacksmith_shop_response_0=Thank you but I am doing alright myself
+profession_blacksmith_shop_response_1=Knowing you, you would sell me some cheap copper crap
+profession_blacksmith_shop_response_2=I would but I don't have any money
+
+profession_blacksmith_0=You look like you could use some better armor <NAME>
+profession_blacksmith_1=Damn Cavelings keep stealing my gold!
+profession_blacksmith_2=I once made a sword out of some demonic materials, It kept finding its way into my hands though
+profession_blacksmith_3=Of course Gold is stronger than iron, what are they teaching nowadays?
+
+profession_guard_armor_good_0=I'd like to see those pirates get through this armor!
+profession_guard_armor_good_1=Check me out <NAME>, I'm rocking some real metal!
+profession_guard_armor_good_2=Yeah I polish my armor, looks good doesn't it
+profession_guard_armor_good_3=OI! No touching, you might leave a finger print on my armor!
+
+profession_guard_armor_bad_0=I wish I had some better armor, this just ain't going to cut it
+profession_guard_armor_bad_1=Wish I had the coin for some better armor, this stuff is as thin as paper
+profession_guard_armor_bad_2=I may not have the shiniest armor, but I can still beat up brutes with the best of them
+
+[unused]
+combat_0=Get over here!
+combat_1=You don't stand a chance!
+combat_2=Fight me coward!
+combat_3=Is that all you got?!
+combat_4=For honor and for glory!
+combat_5=You dare stand in my way?!
+combat_6=I'll have your head!
+combat_7=BLOOD FOR THE BLOOD GOD!!
