@@ -28,7 +28,7 @@ public class ConditionHandler {
         MOB_MAP.put("happiness", ((HumanMob)mob).getSettlerHappiness());
         MOB_MAP.put("armor", mob.getArmor());
         MOB_MAP.put("hunger", ((HumanMob) mob).hungerLevel * 100);
-        MOB_MAP.put("raining", mob.getLevel().rainingLayer.isRaining() ? 1 : 0);
+        MOB_MAP.put("raining", mob.getLevel().weatherLayer.isRaining() ? 1 : 0);
         MOB_MAP.put("inCombat", mob.isInCombat() ? 1 : 0);
         MOB_MAP.put("isAsleep", mob.getWorldEntity().isNight() ? 1 : 0);
         MOB_MAP.put("lastFoodHappiness", ((HumanMob) mob).lastFoodEaten != null ? ((HumanMob) mob).lastFoodEaten.quality.happinessIncrease : 0);
