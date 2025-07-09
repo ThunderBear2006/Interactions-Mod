@@ -8,7 +8,7 @@ plugins {
 project.ext.modID = "thunder.interactions" // The unique id of your mod. Must be all lowercase and cannot use special characters.
 project.ext.modName = "Settler Interactions" // The display name of your mod.
 project.ext.modVersion = "0.1" // Your current builds version. Must follow the xx.xx... format.
-project.ext.gameVersion = "0.22.1" // The target game version.
+project.ext.gameVersion = "0.32.1" // The target game version.
 project.ext.modDescription = "Allows settlers and villagers to talk to one another" // Short description of what your mod is.
 project.ext.author = "ThunderBear06" // Your name
 

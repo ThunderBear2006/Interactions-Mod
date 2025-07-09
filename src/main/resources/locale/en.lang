@@ -5,19 +5,13 @@ socialJobType=Socialize
 socialJobType=Socializing within settlement
 
 [activities]
-talking_to=Talking to <target>
+talking_to=Talking to <TARGET>
+
+[hapMod]
+good_chat=I had a good chat
+bad_chat=I did not have a good chat
 
 [mobmsg]
-
-generic_greeting_0=Hello <NAME>
-generic_greeting_1=Hey <NAME>! Where have you been?
-generic_greeting_2=Hi <NAME>
-generic_greeting_3=Greetings <NAME>
-
-generic_bye_0=Bye <NAME>, see you later
-generic_bye_1=See you later <NAME>
-generic_bye_2=Don't get lost <NAME>
-generic_bye_3=Leaving already <NAME>?
 
 generic_story_query_0=I once saw a squirrel fly from one tree to another
 generic_story_query_1=I once saw this snake that had two heads!
@@ -68,29 +62,6 @@ legend_bad_response_0=I am not so sure how true that is.
 legend_bad_response_1=Stop talking of such childish things <NAME>
 legend_bad_response_2=You need to stop reading so much, its rotting your brain <NAME>
 legend_bad_response_3=Do not speak of such heresy!
-
-compliment_query_0=Good seeing you <NAME>, take care
-compliment_query_1=Wow <NAME>, you're looking great today!
-compliment_query_2=You are doing a great job <NAME>, keep at it
-compliment_query_3=I love what you are wearing <NAME>!
-
-compliment_response_0=Thank you! Take care
-compliment_response_1=I needed that, thank you <NAME>
-compliment_response_2=You are too kind
-compliment_response_3=Likewise!
-
-insult_query_0=Go dig up some truffles you hog
-insult_query_1=Go swim in an ocean of sharks
-insult_query_2=I've seen goblins that look better than you <NAME>
-insult_query_3=Go jump off a tree <NAME>
-
-insult_response_0=You should be locked away deep in a dungeon
-insult_response_1=Yeah, right.
-insult_response_2=Shove off
-insult_response_3=Go hug a zombie <NAME>
-insult_response_4=Even a goblin would find you ugly
-insult_response_5=Leave me be
-insult_response_6=Well you get no maidens <NAME>
 
 happy_day_query_0=I am having such a great day! How are you <NAME>?
 happy_day_query_1=Such a beautiful day it is, don't you agree <NAME>?

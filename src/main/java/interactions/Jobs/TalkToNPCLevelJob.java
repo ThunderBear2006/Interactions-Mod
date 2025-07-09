@@ -13,6 +13,7 @@ import necesse.level.maps.levelData.settlementData.ZoneTester;
 
 import java.awt.*;
 
+@Deprecated
 public class TalkToNPCLevelJob extends EntityLevelJob<HumanMob> {
 
     public TalkToNPCLevelJob(HumanMob mob) {
@@ -28,7 +29,7 @@ public class TalkToNPCLevelJob extends EntityLevelJob<HumanMob> {
     }
 
     public static <T extends TalkToNPCLevelJob> JobSequence getJobSequence(EntityJobWorker worker, FoundJob<T> foundJob) {
-        GameMessage activityDescription = new LocalMessage("activities", "talking_to", "<target>", foundJob.job.target.getDisplayName());
+        GameMessage activityDescription = new LocalMessage("activities", "talking_to", "<TARGET>", foundJob.job.target.getDisplayName(), "", "");
         GameLinkedListJobSequence sequence = new GameLinkedListJobSequence(activityDescription);
         sequence.add(foundJob.job.getActiveJob(worker, foundJob.priority, foundJob.handler.tileRange.apply(worker.getLevel()), 500));
         return sequence;
@@ -41,7 +42,7 @@ public class TalkToNPCLevelJob extends EntityLevelJob<HumanMob> {
             Point base = worker.getJobSearchTile();
             GameTileRange tileRange = handler.tileRange.apply(worker.getLevel());
             return mob.getLevel().entityManager.mobs.streamInRegionsShape(tileRange.getRangeBounds(base), 0).filter((m) -> {
-                return !m.removed() && mob.isSamePlace(m) && m.isHuman && !m.isHostile;
+                return !m.removed() && !m.equals(mob) && m.isSamePlace(mob) && m.isHuman && !m.isHostile;
             }).filter((m) -> {
                 return restrictZone.containsTile(m.getTileX(), m.getTileY());
             }).filter((m) -> {

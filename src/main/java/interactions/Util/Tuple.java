@@ -16,12 +16,4 @@ public class Tuple <X,Y> {
     public Y Second(){
         return this.y;
     }
-
-    public void SetFirst(X x){
-        this.x = x;
-    }
-
-    public void SetSecond(Y y){
-        this.y = y;
-    }
 }

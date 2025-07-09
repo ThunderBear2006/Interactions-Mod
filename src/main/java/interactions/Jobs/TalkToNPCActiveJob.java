@@ -11,6 +11,7 @@ import necesse.entity.mobs.job.activeJob.ActiveJobResult;
 import necesse.entity.mobs.job.activeJob.MobActiveJob;
 import necesse.level.maps.levelData.jobs.EntityLevelJob;
 
+@Deprecated
 public class TalkToNPCActiveJob extends MobActiveJob<HumanMob> {
     public EntityLevelJob<? extends HumanMob> job;
     public long talkEndTime;
@@ -22,15 +23,16 @@ public class TalkToNPCActiveJob extends MobActiveJob<HumanMob> {
     public TalkToNPCActiveJob(EntityJobWorker worker, JobTypeHandler.TypePriority priority, GameTileRange maxRange, EntityLevelJob<? extends HumanMob> job, int animationSpeed) {
         super(worker, priority, job.target, maxRange);
         this.job = job;
-        this.talkEndTime = 50000 + GameRandom.globalRandom.nextInt(100000);
-        this.talkCoolDown = 1;
+        this.talkEndTime = 5000 + GameRandom.globalRandom.nextInt(10000);
+        this.talkCoolDown = 500;
         this.talkStartTime = 0;
         this.animSpeed = animationSpeed;
     }
 
     @Override
     public boolean isJobValid(boolean b) {
-        return (this.job.reservable.isAvailable(this.worker.getMobWorker()) && !this.worker.getMobWorker().isInCombat() && !this.target.isInCombat()) || InteractionsMod.DebugEnabled;
+        boolean valid = (this.job.reservable.isAvailable(this.worker.getMobWorker()) && !this.worker.getMobWorker().isInCombat() && !this.target.isInCombat());
+        return valid && !SettlerDialogue.HasInteractedRecently(worker.getMobWorker());
     }
 
     @Override
@@ -45,39 +47,43 @@ public class TalkToNPCActiveJob extends MobActiveJob<HumanMob> {
 
     @Override
     public boolean isAtTarget() {
-        return this.hasLOS() && this.worker.getMobWorker().getDistance(this.job.target) < InteractionsMod.MaxInteractionDistance;
+        return this.hasLOS() && this.worker.getMobWorker().getDistance(this.job.target) < InteractionsMod.settings.MaxSpeechDistance;
     }
 
     @Override
     public ActiveJobResult perform() {
-        // TalkStartTime + TalkEndTime = the maximum duration of the talk session
+        HumanMob worker = (HumanMob) this.worker.getMobWorker();
+
+        // Can't talk to someone who doesn't exist or is in combat very well
+        if (this.target.removed() || this.target.isInCombat())
+            return ActiveJobResult.FAILED;
+
+        // No shouting please
+        if (!this.isAtTarget())
+            return ActiveJobResult.MOVE_TO;
+
+        // TalkStartTime + TalkEndTime = the duration of the talk session
         if (this.talkStartTime != 0) { // Are we just starting?
             // No, have we been talking for long enough?
-            if (this.lastTalkTime > this.talkStartTime + this.talkEndTime) {
+            if (worker.getWorldTime() > this.talkStartTime + this.talkEndTime) {
                 // Yes, lets give a fair well
+                SettlerDialogue.HandleDialogue(worker, this.target, "farewell");
                 return ActiveJobResult.FINISHED;
             }
         } else {
             // Yes, lets set the time we started talking
             this.talkStartTime = this.worker.getMobWorker().getWorldTime();
             // Let's also do a greeting
+            SettlerDialogue.HandleDialogue(worker, this.target, "greeting");
         }
-        // Can't talk to someone who doesn't exist or is in combat very well
-        if (!this.target.removed() && !this.target.isInCombat()) {
-            HumanMob worker = (HumanMob) this.worker.getMobWorker();
-            // No shouting please
-            if (!this.isAtTarget())
-                return ActiveJobResult.MOVE_TO;
-            // Has it been a moment since we have said anything?
-            if (worker.getWorldTime() - this.lastTalkTime > this.talkCoolDown) {
-                // Yes, lets say something else
-                this.lastTalkTime = worker.getWorldTime();
-                this.worker.showWorkAnimation(this.target.getX(), this.target.getY(), null, this.animSpeed);
-                SettlerDialogue.HandleSettlerConversation(worker, this.target);
-            }
-            return ActiveJobResult.PERFORMING;
+
+        // Has it been a moment since we have said anything?
+        if (worker.getWorldTime() - this.lastTalkTime >= this.talkCoolDown) {
+            // Yes, lets talk some more
+            this.lastTalkTime = worker.getWorldTime();
+            SettlerDialogue.HandleDialogue(worker, this.target, "dialogue");
         }
-        // Something went wrong, either the target died to went into combat
-        return ActiveJobResult.FAILED;
+
+        return ActiveJobResult.PERFORMING;
     }
 }
