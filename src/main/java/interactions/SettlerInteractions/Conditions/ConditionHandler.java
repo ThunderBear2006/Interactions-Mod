@@ -9,16 +9,19 @@ import java.util.HashMap;
 public class ConditionHandler {
     private static final HashMap<String, Object> MOB_MAP = new HashMap<>();
 
-    public static boolean Eval(int property, String operator, int standard) {
-        boolean result = ((operator.contains("=") && property == standard) || (operator.contains(">") && property > standard)) != operator.contains("!");
-        Logger.printDebug("Evaluating condition: {0} {1} {2} is {3}", property, operator, standard, result);
-        return result;
+    public static boolean Eval(int property, String operator, int value) {
+        if (operator.contains("=") && property == value)
+            return !operator.contains("!");
+        else if (operator.contains(">"))
+            return property > value;
+
+        return operator.contains("<") && property < value;
     }
 
-    public static <X extends Mob> boolean MobConditionMet(X mob, String prop, String operator, String stan) {
+    public static <X extends Mob> boolean MobConditionMet(X mob, String prop, String operator, String value) {
         HashMap<String, Object> mobMap = MapMobData(mob);
 
-        return Eval((Integer) mobMap.get(prop), operator, Integer.parseInt(stan));
+        return Eval((Integer) mobMap.get(prop), operator, Integer.parseInt(value));
     }
 
     public static <T extends Mob> HashMap<String, Object> MapMobData(T mob) {

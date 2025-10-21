@@ -18,7 +18,7 @@ public class Logger {
      */
     public static void print(String message, Object... args) {
         MessageFormat msg = new MessageFormat(message);
-        System.out.println(ModStringID + "|" + msg.format(args));
+        System.out.println(ModStringID + " | " + msg.format(args));
     }
 
     /**

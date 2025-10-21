@@ -7,16 +7,16 @@ import necesse.engine.save.SaveData;
 public class Settings extends ModSettings {
     public int MaxSpeechDistance;
     public int NegativeResponseChance;
-    public int InteractionChance;
+    public float InteractionChance;
     public long InteractionCoolDown;
     public boolean DebugMode;
     public boolean GenerateDefaultDialogue;
 
     public Settings() {
-        InteractionChance = 10;
+        InteractionChance = 0.3f;
         MaxSpeechDistance = 100;
         NegativeResponseChance = 10;
-        InteractionCoolDown = 100000L;
+        InteractionCoolDown = 10000L;
         DebugMode = false;
         GenerateDefaultDialogue = true;
     }
@@ -33,6 +33,7 @@ public class Settings extends ModSettings {
 
     @Override
     public void applyLoadData(LoadData loadData) {
+        InteractionChance = loadData.getFloat("InteractionChance");
         MaxSpeechDistance = loadData.getInt("MaxSpeechDistance");
         NegativeResponseChance = loadData.getInt("NegativeResponseChance");
         InteractionCoolDown = loadData.getLong("InteractionCoolDown");

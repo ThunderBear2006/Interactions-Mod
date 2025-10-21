@@ -6,6 +6,7 @@ import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.friendly.human.HumanMob;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -45,7 +46,7 @@ public class Dialogue {
     }
 
     public <T extends HumanMob> boolean CheckConditions(T mob, T target) {
-        if (this.Conditions.size() == 0)
+        if (this.Conditions.isEmpty())
             return true;
 
         // The number of conditions satisfied
@@ -83,6 +84,14 @@ public class Dialogue {
      */
     public <T extends HumanMob> String GetBestResponse(T mob, T receiver){
         for (String key : Responses){
+            HashMap<String, Dialogue> reg = DialogueRegistry.REGISTRY.get("response");
+
+            if (!reg.containsKey(key))
+            {
+                Logger.printError("Unknown response "+key);
+                continue;
+            }
+
             if (DialogueRegistry.REGISTRY.get("response").get(key).CheckConditions(receiver, mob))
                 return key;
         }

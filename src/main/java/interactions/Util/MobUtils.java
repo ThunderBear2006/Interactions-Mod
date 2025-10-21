@@ -1,9 +1,13 @@
 package interactions.Util;
 
+import necesse.engine.localization.message.StaticMessage;
 import necesse.engine.network.packet.PacketMobChat;
+import necesse.engine.network.server.Server;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.ai.behaviourTree.util.TargetFinderDistance;
 import necesse.entity.mobs.friendly.human.HumanMob;
+import necesse.gfx.GameColor;
+import necesse.level.maps.hudManager.floatText.ChatBubbleText;
 
 import java.awt.geom.Line2D;
 import java.util.Optional;
@@ -20,10 +24,15 @@ public class MobUtils {
         if (mob.getLevel().isClient())
             return;
 
+        Server server = mob.getServer();
+
+        if (server == null)
+            return;
+
         mob.getLevel().getServer().network.sendToClientsWithRegion(
                 new PacketMobChat(mob.getUniqueID(), message),
                 mob.getLevel(),
-                mob.getLevel().regionManager.getRegionXByTile(mob.getTileX()), mob.getLevel().regionManager.getRegionYByTile(mob.getTileY())
+                mob.getLevel().regionManager.getRegionCoordByTile(mob.getTileX()), mob.getLevel().regionManager.getRegionCoordByTile(mob.getTileY())
         );
     }
 

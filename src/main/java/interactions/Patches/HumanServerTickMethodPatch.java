@@ -1,9 +1,12 @@
 package interactions.Patches;
 
 import interactions.InteractionsMod;
+import interactions.Settings;
 import interactions.SettlerInteractions.SettlerDialogue;
+import interactions.Util.Logger;
 import interactions.Util.MobUtils;
 import necesse.engine.modLoader.annotations.ModMethodPatch;
+import necesse.engine.state.MainMenu;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.friendly.human.HumanMob;
@@ -17,11 +20,17 @@ public class HumanServerTickMethodPatch {
     @Deprecated
     @Advice.OnMethodExit
     static void onExit(@Advice.This HumanMob t) {
+        long time = t.getTime() - SettlerDialogue.LastInteractionTime;
+
+        if (time < InteractionsMod.settings.InteractionCoolDown)
+            return;
 
         // Nobody wants their NPCs constantly talking now do they
-        if (GameRandom.globalRandom.nextInt(10000) > InteractionsMod.settings.InteractionChance) {
+        if (GameRandom.globalRandom.nextFloat() < InteractionsMod.settings.InteractionChance) {
             return;
         }
+
+        SettlerDialogue.LastInteractionTime = t.getTime();
 
         HumanMob newTarget = MobUtils.GetNearbyHumanMob(t, InteractionsMod.settings.MaxSpeechDistance, true);
 
